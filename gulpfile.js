@@ -19,46 +19,45 @@ async function chrome () {
 
 let validateHTML = () => {
     return src([
-        `dev/html/*.html`,
-        `dev/html/**/*.html`])
+        `*.html`])
         .pipe(htmlValidator());
 };
 
 let validateCSS = () => {
     return src([
-        `dev/css/*.css`,
-        `dev/css/**/*.css`])
+        `css/*.css`,
+        `css/**/*.css`])
         .pipe(cssValidator());
 };
 
 let validateJS = () => {
     return src([
-        `dev/js/*.js`,
-        `dev/js/**/*.js`])
+        `js/*.js`,
+        `js/**/*.js`])
         .pipe(jsValidator())
         .pipe(jsValidator.formatEach(`compact`));
 };
 
 let compressHTML = () => {
-    return src([`dev/html/*.html`,`dev/html/**/*.html`])
+    return src([`*.html`])
         .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod`));
 };
 
 let compressCSS = () => {
-    return src([`dev/css/*.css`,`dev/css/**/*.css`])
+    return src([`css/*.css`,`css/**/*.css`])
         .pipe(cssCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod/css`));
 };
 
 let transpileJSForDev = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
-        .pipe(dest(`temp/scripts`));
+        .pipe(dest(`temp/js`));
 };
 
 let transpileJSForProd = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
         .pipe(jsCompressor())
         .pipe(dest(`prod/scripts`));
@@ -72,15 +71,14 @@ let serve = () => {
         server: {
             baseDir: [
                 `temp`,
-                `dev`,
-                `dev/html`
+                `.`
             ]
         }
     });
 
-    watch(`dev/html/*.html`, validateHTML).on(`change`, reload);
-    watch(`dev/css/*.css`, validateCSS).on(`change`, reload);
-    watch(`dev/js/*.js`, series(validateJS, transpileJSForDev)).on(`change`, reload);
+    watch(`*.html`, validateHTML).on(`change`, reload);
+    watch(`css/*.css`, validateCSS).on(`change`, reload);
+    watch(`js/*.js`, series(validateJS, transpileJSForDev)).on(`change`, reload);
 };
 
 exports.chrome = series(chrome, serve);

@@ -92,13 +92,13 @@ Thursday, 27 October 2022, at 12:00 PM.
 | *Fully-implemented JavaScript code according to directions*            | `25`   |
 | *Overall code quality across Gulp, JavaScript, HTML, and CSS*          | `10`   |
 | *Project implemented following assignment directions*                  | `10`   |
-| *JavaScript, including `gulpfiles.js` is valid (via `gulp-eslint`)*    | `10`   |
+| *JavaScript, including `gulpfile.js` is valid (via `gulp-eslint`)*     | `10`   |
 | *Full Gulp development scaffold in place*                              | `10`   |
 | *Full Gulp production scaffold in place*                               | `10`   |
 | *`.editorconfig` implemented*                                          | `05`   |
 | *Uses back ticks exclusively for quoted strings*                       | `05`   |
 | *HTML is valid (via `gulp-html`)*                                      | `05`   |
-| *CSS is valid (via `gul-stylelint`)*                                   | `05`   |
+| *CSS is valid (via `gulp-stylelint`)*                                  | `05`   |
 | *Variables declared using only `let` (no variable hoisting)*           | `05`   |
 | *Functions declared using only arrow functions (no function hoisting)* | `05`   |
 

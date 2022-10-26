@@ -1,16 +1,18 @@
 const { src, dest, series, watch } = require(`gulp`),
     babel = require(`gulp-babel`),
-    htmlValidator = require(`gulp-htmlmin`),
+    htmlCompressor = require(`gulp-htmlmin`),
     jsCompressor = require(`gulp-uglify`),
+    cssCompressor = require(`gulp-clean-css`),
+    htmlValidator = require(`gulp-html`),
     jsValidator = require(`gulp-eslint`),
+    cssValidator = require(`gulp-stylelint`),
     browserSync = require(`browser-sync`),
-    cssValidator = require(`gulp-clean-css`),
     reload = browserSync.reload;
 
 let browserChoice = `default`;
 
-// for working with chrome (different syntax than example since development is on Arch Linux, 
-// this is the cmd to start chrome on Arch)
+// for working with chrome (different syntax than example since 
+// development is on Arch Linux, this is the cmd to start chrome on Arch)
 async function chrome () {
     browserChoice = `google-chrome-stable`;
 }
@@ -19,14 +21,14 @@ let validateHTML = () => {
     return src([
         `dev/html/*.html`,
         `dev/html/**/*.html`])
-        .pipe(htmlValidator(undefined));
+        .pipe(htmlValidator());
 };
 
 let validateCSS = () => {
     return src([
         `dev/css/*.css`,
         `dev/css/**/*.css`])
-        .pipe(cssValidator(undefined));
+        .pipe(cssValidator());
 };
 
 let validateJS = () => {
@@ -39,13 +41,13 @@ let validateJS = () => {
 
 let compressHTML = () => {
     return src([`dev/html/*.html`,`dev/html/**/*.html`])
-        .pipe(htmlValidator({collapseWhitespace: true}))
+        .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod`));
 };
 
 let compressCSS = () => {
     return src([`dev/css/*.css`,`dev/css/**/*.css`])
-        .pipe(htmlValidator({collapseWhitespace: true}))
+        .pipe(cssCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod/css`));
 };
 

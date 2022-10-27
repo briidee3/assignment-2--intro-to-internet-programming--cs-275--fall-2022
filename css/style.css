@@ -3,9 +3,19 @@ h1 {
     line-height: calc(1.2 * font-size);
 }
 
+#container {
+    position: relative;
+}
+
 .slides img {
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 18px;
     padding-right: 18px;
+}
+
+.slides {
+    overflow: clip;
+    width: 500px;
+    display: flex;
 }

@@ -4,17 +4,26 @@ h1 {
     text-align: center;
 }
 
+#viewport {
+    width: 460px;
+    z-index: 3;
+    overflow: clip;
+    position: fixed;
+}
+
 #container {
     position: relative;
     overflow: clip;
     display: flex;
     height: 300px;
+    z-index: 1;
 }
 
 .slides {
     width: 500px;
     height: 250px;
     display: inherit;
+    position: absolute;
 }
 
 .slides img {

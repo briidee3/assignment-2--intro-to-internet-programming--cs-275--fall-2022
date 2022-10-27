@@ -5,10 +5,11 @@ h1 {
 }
 
 #viewport {
-    width: 460px;
+    width: 500px;
     z-index: 3;
     overflow: clip;
     position: fixed;
+    left: calc(50% - (500px / 2));
 }
 
 #container {

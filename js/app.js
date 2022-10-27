@@ -29,9 +29,17 @@ window.onload = () => {
     let shiftSlides = (direction) => {
         
         for (let i = 0; i < slides.length; i++) {
-            if (!(parseInt(slides[i].style.left) === (2000 || -2000)))
-                console.log(slides[i].style.left = `${parseInt(slides[i].style.left) + 
-                                                        (direction * slideWidth)}px`);
+
+            // make it so no functionality when on last slide
+            if (parseInt(slides[0].style.left) === 0 && direction === 1) {
+                direction = 0;
+            }
+            if (parseInt(slides[4].style.left) === 0 && direction === -1) {
+                direction = 0;
+            }
+
+            console.log(slides[i].style.left = `${parseInt(slides[i].style.left) + 
+                                                    (direction * slideWidth)}px`);
         }
 
     };

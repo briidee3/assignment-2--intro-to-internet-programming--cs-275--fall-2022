@@ -5,11 +5,11 @@ h1 {
 }
 
 #viewport {
-    width: 500px;
-    z-index: 3;
+    width: 520px;
+    z-index: 30;
     overflow: clip;
     position: fixed;
-    left: calc(50% - (500px / 2));
+    left: calc(50% - (520px / 2));
 }
 
 #container {
@@ -17,7 +17,7 @@ h1 {
     overflow: clip;
     display: flex;
     height: 300px;
-    z-index: 1;
+    z-index: 10;
 }
 
 .slides {
@@ -25,6 +25,8 @@ h1 {
     height: 250px;
     display: inherit;
     position: absolute;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .slides img {
@@ -38,4 +40,15 @@ h1 {
 
 .slides p {
     width: 210px;
+}
+
+.arrows {
+    height: 50px;
+    z-index: 40;
+    position: absolute;
+    top: calc(50% - 35px);
+}
+
+#right {
+    left: calc(100% - 30px);
 }

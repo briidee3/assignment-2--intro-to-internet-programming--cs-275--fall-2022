@@ -14,33 +14,24 @@ window.onload = () => {
 
     // left arrow
     arrows[0].addEventListener(`click`, () => {
-        shiftSlides(`left`);
+        shiftSlides(1);
         console.log(`left arrow`);
     });
 
     // right arrow
     arrows[1].addEventListener(`click`, () => {
-        shiftSlides(`right`);
+        shiftSlides(-1);
         console.log(`right arrow`);
     });
 
 
     // function to move to the left or right on arrow click
     let shiftSlides = (direction) => {
-
-        // direction for calculations
-        let dir;
-
-        if (direction === `left`) {
-            dir = -1;
-        }
-        else {
-            dir = 1;
-        }
-
+        
         for (let i = 0; i < slides.length; i++) {
-            slides[i].style.left = `${i * dir * slideWidth}px`;
-            
+            if (!(parseInt(slides[i].style.left) === (2000 || -2000)))
+                console.log(slides[i].style.left = `${parseInt(slides[i].style.left) + 
+                                                        (direction * slideWidth)}px`);
         }
 
     };

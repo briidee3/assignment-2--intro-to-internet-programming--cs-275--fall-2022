@@ -1,7 +1,7 @@
 h1 {
     font-size: 32px;
     line-height: calc(1.2 * font-size);
-    
+    text-align: center;
 }
 
 #container {

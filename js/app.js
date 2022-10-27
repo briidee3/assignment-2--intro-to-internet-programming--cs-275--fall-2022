@@ -9,5 +9,17 @@ window.onload = () => {
         console.log(slides[i].style.left = `${i * slideWidth}px`);
     }
 
-    
+    // arrow functionality
+    let arrows = document.getElementsByClassName(`arrows`);
+
+    // left arrow
+    arrows[0].addEventListener(`click`, () => {
+        if (!())
+    });
+
+
+    // function to move to the left or right on arrow click
+    shiftSlides (dir) => {
+        
+    }
 };

@@ -2,3 +2,10 @@ h1 {
     font-size: 32px;
     line-height: calc(1.2 * font-size);
 }
+
+.slides img {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
